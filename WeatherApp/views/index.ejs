@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Weather Me now</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0, 238, 255, 0.836));">
+    <header >
+        <p class="header">Weather Me Now App</p>
+        (Dagan, Boitumelo, Ayanda)
+    </header>
+    <div class="container">
+        <fieldset>
+            <form action="/" method="post" style="color: white;">
+                <input name="city" type="text" class="ghost-input" placeholder="Search Location" required>
+                <input type="submit" class="ghost-button" value="Weather Me Now">
+            </form>
+        </fieldset>
+        <%if( weather !== null){ %>
+            <div class="grid">
+                <p style="color: rgb(63, 62, 62);">
+                    <%= place %>
+                </p>
+                <p class="text-muted small" style="color: rgb(63, 62, 62);">
+                    <%= timezone %>
+                </p>
+            </div>
+
+             <!-- Summary container -->
+            <div class="card-deck" >                                                            <!--Card1-->
+                <div class="card card-accent-dark mb-3" style="max-width: 18rem; background-color: transparent;">
+
+                    <div class="card-header" style="background-color: rgba(255, 255, 0, 0.705);">Weather Summary</div>
+                    <div class="card-body text-dark">
+                        <img src="<%= icon %>" alt="Weather-Icon">
+                        
+                        <h5 class="card-title">Temperature</h5>
+                        <p class="card-text" style="color: rgb(241, 118, 18);">
+                            In Degrees:
+                            <%= temp %>°C/
+                                <%= fahrenheit %>°F
+                        </p>
+                        <h5 class="card-title">Main</h5>
+                        <p class="card-text" style="color: rgb(241, 118, 18);">
+                            <%= main %>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-deck">                                                         <!--Card2-->
+                    <div class="card card-acTomorrowcent-dark mb-3" style="max-width: 18rem; background-color: transparent;">
+                        <div class="card-header" style="background-color: rgba(255, 255, 0, 0.705);">Weather Description</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Overall Description: </h5>
+                            <p class="card-text" style="color: rgb(241, 118, 18);">
+                                <%= description %>
+                            </p>
+                            <h5 class="card-title">Cloud coverage: </h5>
+                            <p class="card-text" style="color: rgb(241, 118, 18);">
+                                <%= clouds %>%
+                            </p>
+                            <h5 class="card-title">Visibility: </h5>
+                            <p class="card-text" style="color: rgb(241, 118, 18);">
+                                <%= visibility %> meters
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card-deck">                                                     <!--Card3-->
+                        <div class="card card-accent-dark mb-3" style="max-width: 18rem; background-color: transparent;">
+                            <div class="card-header" style="background-color: rgba(255, 255, 0, 0.705);">More information</div>
+                            <div class="card-body text-dark">
+                                <h5 class="card-title">Humidity: </h5>
+                                <p class="card-text" style="color: rgb(241, 118, 18);">
+                                    <%= humidity %> g.m-3
+                                </p>
+                            </div>
+                            <div class="card-body text-dark">
+                                <h5 class="card-title">Pressure: </h5>
+                                <p class="card-text" style="color: rgb(241, 118, 18);">
+                                    <%= pressure %> N·m−2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                        <% if(error !== null){ %>
+                            <p>
+                                <%= error %>
+                            </p>
+                            <% } %>
+
+                </div>
+                
+</body>
+
+</html>
